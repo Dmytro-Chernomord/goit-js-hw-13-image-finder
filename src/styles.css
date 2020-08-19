@@ -49,6 +49,7 @@ img {
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  font-size: 36px;
 }
 .gallery > div {
   margin: 20px;
