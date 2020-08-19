@@ -49,10 +49,9 @@ img {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-}
-.gallery.font-size {
   font-size: 36px;
 }
+
 .gallery > div {
   margin: 20px;
 }
@@ -62,6 +61,7 @@ img {
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  font-size: 10px;
 }
 .stats-item:nth-child(odd) {
   color: blue;

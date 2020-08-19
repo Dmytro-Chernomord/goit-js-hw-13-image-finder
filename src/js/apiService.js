@@ -16,27 +16,22 @@ async function search() {
 
   refs.searchBtn.addEventListener('click', nextPage);
 
-  scroll(height);
   if (searchQuery) {
     const respPict = await fetch(url);
     const dataPars = await respPict.json();
-    console.log(dataPars.hits.length);
+    scroll(height);
     if (dataPars.hits.length === 0) {
-      refs.ul.classList.add('font-size');
-      refs.searchBtn.classList.add('isHiden');
-
-      refs.ul.innerHTML = 'Not found';
+      addClass('isHiden');
+      toShow('Not found');
     } else {
       refs.ul.insertAdjacentHTML('beforeend', card(dataPars.hits));
       refs.searchBtn.classList.remove('isHiden');
     }
   } else {
     page = 1;
-    refs.ul.innerHTML = '';
+    toShow('');
     refs.searchBtn.removeEventListener('click', nextPage);
-
-    refs.searchBtn.classList.add('isHiden');
-    refs.ul.classList.remove('font-size');
+    addClass('isHiden');
   }
 }
 
@@ -45,4 +40,12 @@ function nextPage() {
 
   refs.searchBtn.removeEventListener('click', nextPage);
   search();
+}
+
+function addClass(a) {
+  refs.searchBtn.classList.add(a);
+}
+
+function toShow(a) {
+  refs.ul.innerHTML = a;
 }
