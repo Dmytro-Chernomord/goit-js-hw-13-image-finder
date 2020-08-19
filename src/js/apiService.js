@@ -22,6 +22,8 @@ async function search() {
     const dataPars = await respPict.json();
     console.log(dataPars.hits.length);
     if (dataPars.hits.length === 0) {
+      refs.ul.classList.add('font-size');
+
       refs.ul.innerHTML = 'Not found';
     } else {
       refs.ul.insertAdjacentHTML('beforeend', card(dataPars.hits));
@@ -33,6 +35,7 @@ async function search() {
     refs.searchBtn.removeEventListener('click', nextPage);
 
     refs.searchBtn.classList.add('isHiden');
+    refs.ul.classList.remove('font-size');
   }
 }
 
