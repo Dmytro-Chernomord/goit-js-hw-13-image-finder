@@ -23,6 +23,7 @@ async function search() {
     console.log(dataPars.hits.length);
     if (dataPars.hits.length === 0) {
       refs.ul.classList.add('font-size');
+      refs.searchBtn.classList.add('isHiden');
 
       refs.ul.innerHTML = 'Not found';
     } else {
