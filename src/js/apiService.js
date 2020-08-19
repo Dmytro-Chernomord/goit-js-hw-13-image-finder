@@ -17,7 +17,6 @@ async function search() {
   refs.searchBtn.addEventListener('click', nextPage);
 
   scroll(height);
-
   if (searchQuery) {
     const respPict = await fetch(url);
     const dataPars = await respPict.json();
